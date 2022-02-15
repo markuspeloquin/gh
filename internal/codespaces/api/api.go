@@ -686,6 +686,18 @@ func (a *API) DeleteCodespace(ctx context.Context, codespaceName string) error {
 	return nil
 }
 
+// CreateCodespaceParams are the required parameters for provisioning a Codespace.
+type EditCodespaceParams struct {
+	CodespaceName string
+	DisplayName   string
+	IdleTimeout   time.Duration
+	SKU           string
+}
+
+func (a *API) EditCodespace(ctx context.Context, name string) (*Codespace, error) {
+	return nil, nil
+}
+
 type getCodespaceRepositoryContentsResponse struct {
 	Content string `json:"content"`
 }

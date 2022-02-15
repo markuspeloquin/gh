@@ -37,6 +37,17 @@ func newEditCmd(app *App) *cobra.Command {
 
 // Edits a codespace
 func (a *App) Edit(ctx context.Context, opts editOptions) error {
-	fmt.Println("HEY PIZZA")
+	userInputs := struct {
+		CodespaceName string
+		DisplayName   string
+		IdleTimeout   time.Duration
+		SKU           string
+	}{
+		CodespaceName: opts.codespaceName,
+		DisplayName:   opts.displayName,
+		IdleTimeout:   opts.idleTimeout,
+		SKU:           opts.machine,
+	}
+	fmt.Println(userInputs)
 	return nil
 }
