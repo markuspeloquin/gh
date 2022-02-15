@@ -55,6 +55,7 @@ func (a *App) StopProgressIndicator() {
 
 //go:generate moq -fmt goimports -rm -skip-ensure -out mock_api.go . apiClient
 type apiClient interface {
+	EditCodespace(ctx context.Context, name string) (*api.Codespace, error)
 	GetUser(ctx context.Context) (*api.User, error)
 	GetCodespace(ctx context.Context, name string, includeConnection bool) (*api.Codespace, error)
 	ListCodespaces(ctx context.Context, limit int) ([]*api.Codespace, error)
